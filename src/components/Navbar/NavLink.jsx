@@ -10,8 +10,9 @@ const NavLink = ({ link }) => {
   };
   return (
     <>
-      {links[link]}
-      <Link to={"/" + link}>{link}</Link>
+      <Link to={"/" + link} className="flex gap-2">
+        {links[link]} {link}
+      </Link>
     </>
   );
 };

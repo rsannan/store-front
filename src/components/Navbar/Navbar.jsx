@@ -10,7 +10,6 @@ import {
 const Navbar = () => {
   const dispatch = useDispatch();
   const { sideBarOpen, amount } = useSelector((store) => store.navbar);
-  console.log("mac");
 
   return (
     <>

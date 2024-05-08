@@ -1,11 +1,11 @@
 import StoreCard from "./StoreCard";
 
-const StoreFront = () => {
+const StoreFront = ({ items, type }) => {
   return (
     <div className="mt-2 flex flex-wrap gap-2 items-center justify-center">
-      <StoreCard />
-      <StoreCard />
-      <StoreCard />
+      {items.map((item) => {
+        return <StoreCard {...item} key={item.name} type={type} />;
+      })}
     </div>
   );
 };
