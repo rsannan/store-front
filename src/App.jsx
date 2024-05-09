@@ -6,7 +6,7 @@ import HeadPhones from "./pages/HeadPhones";
 import Laptops from "./pages/Laptops";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateTotals } from "./Features/Store/StoreFront";
+import { calculateTotals, trendingList } from "./Features/Store/StoreFront";
 function App() {
   const dispatch = useDispatch();
   const { cart } = useSelector((store) => store.storeFront);
@@ -15,6 +15,9 @@ function App() {
       dispatch(calculateTotals());
     }
   }, [cart, dispatch]);
+  useEffect(() => {
+    dispatch(trendingList());
+  }, []);
   return (
     <div className="font-body">
       <Routes>

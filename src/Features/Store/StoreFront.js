@@ -7,6 +7,8 @@ const initialState = {
   cart: [],
   amount: 0,
   total: 0,
+  trends: {},
+  trendsLoading: true,
 };
 
 const storeFrontSlice = createSlice({
@@ -24,6 +26,21 @@ const storeFrontSlice = createSlice({
 
       state.amount = amount;
       state.total = total;
+    },
+    trendingList: (state) => {
+      const itemIndex = Math.floor(Math.random() * 10);
+      const itemIndex1 = Math.floor(Math.random() * 10);
+      const trendPhone = state.phones.filter(
+        (phone, index) => index == itemIndex || index == itemIndex1
+      );
+      const trendLaptop = state.laptops.filter(
+        (phone, index) => index == itemIndex || index == itemIndex1
+      );
+      const trendHeadPhones = state.headphones.filter(
+        (phone, index) => index == itemIndex || index == itemIndex1
+      );
+      state.trends = { trendHeadPhones, trendLaptop, trendPhone };
+      state.trendsLoading = false;
     },
     addToCart: (state, { payload }) => {
       const item = state.cart.find((item) => item.name == payload.name);
@@ -60,4 +77,5 @@ export const {
   increaseAmount,
   decreaseAmount,
   clearCart,
+  trendingList,
 } = storeFrontSlice.actions;
