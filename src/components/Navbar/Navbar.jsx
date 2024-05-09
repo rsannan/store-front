@@ -9,7 +9,8 @@ import {
 } from "../../Features/Navbar/NavbarSlice";
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { sideBarOpen, amount } = useSelector((store) => store.navbar);
+  const { sideBarOpen } = useSelector((store) => store.navbar);
+  const { amount } = useSelector((store) => store.storeFront);
 
   return (
     <>

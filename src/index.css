@@ -97,6 +97,15 @@ body {
   border: 2px solid #38bdf8;
   background: #38bdf8;
 }
+.btn-add:hover {
+  background: #fff;
+  color: #7dd3fc;
+}
+
+.btn-add {
+  border: 2px solid #7dd3fc;
+  background: #7dd3fc;
+}
 .modal-outer {
   top: 25%;
   left: 30%;

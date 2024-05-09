@@ -4,7 +4,17 @@ import NotFound from "./pages/NotFound";
 import Phones from "./pages/Phones";
 import HeadPhones from "./pages/HeadPhones";
 import Laptops from "./pages/Laptops";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { calculateTotals } from "./Features/Store/StoreFront";
 function App() {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((store) => store.storeFront);
+  useEffect(() => {
+    if (cart.length > 0) {
+      dispatch(calculateTotals());
+    }
+  }, [cart, dispatch]);
   return (
     <div className="font-body">
       <Routes>

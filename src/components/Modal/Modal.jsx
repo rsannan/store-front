@@ -6,6 +6,7 @@ import { handleModalOpen } from "../../Features/Navbar/NavbarSlice";
 
 const Modal = () => {
   const dispatch = useDispatch();
+  const { cart, total } = useSelector((store) => store.storeFront);
   const { modalOpen } = useSelector((store) => store.navbar);
   ReactModal.setAppElement(document.getElementById("root"));
 
@@ -30,9 +31,9 @@ const Modal = () => {
 
           {/* body */}
           <div className="modal-body flex flex-col gap-2">
-            <ModalCard />
-            <ModalCard />
-            <ModalCard />
+            {cart.map((item) => {
+              return <ModalCard {...item} key={item.name} />;
+            })}
           </div>
 
           {/* footer */}
@@ -40,7 +41,7 @@ const Modal = () => {
             <hr className="  border-b border-indigo-500" />
             <div>
               <h4 className="flex  items-center justify-between capitalize mt-1 font-semibold mx-2">
-                total <span>$ 200</span>
+                total <span>${total}</span>
               </h4>
             </div>
             <div className="flex justify-center gap-5 mt-6 mb-2 ">
