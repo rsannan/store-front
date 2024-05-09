@@ -45,9 +45,19 @@ const storeFrontSlice = createSlice({
         state.cart = state.cart.filter((cartItem) => cartItem !== item);
       }
     },
+    clearCart: (state) => {
+      state.cart = [];
+      state.amount = 0;
+      state.total = 0;
+    },
   },
 });
 
 export default storeFrontSlice.reducer;
-export const { calculateTotals, addToCart, increaseAmount, decreaseAmount } =
-  storeFrontSlice.actions;
+export const {
+  calculateTotals,
+  addToCart,
+  increaseAmount,
+  decreaseAmount,
+  clearCart,
+} = storeFrontSlice.actions;

@@ -10,7 +10,7 @@ const StoreCard = (props) => {
   const { name, price, type } = props;
   const dispatch = useDispatch();
   const [cartAmount, setCartAmount] = useState(0);
-  const {} = useSelector((store) => store.storeFront);
+
   const imgSrc = (type) => {
     if (type == "phones") {
       return phoneLogo;
@@ -29,7 +29,7 @@ const StoreCard = (props) => {
     }
   };
   return (
-    <div className="w-80 p-4 bg-white rounded-lg shadow-md">
+    <div className="w-80 p-4 bg-white rounded-lg shadow-md card">
       <img
         className="w-full h-40 object-contain rounded-t-lg"
         alt="Card Image"
@@ -64,6 +64,7 @@ const StoreCard = (props) => {
             className="btn btn-add"
             onClick={() => {
               dispatch(addToCart({ name, price, type, cartAmount }));
+              setCartAmount(0);
             }}
           >
             Add To Cart

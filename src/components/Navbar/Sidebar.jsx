@@ -1,6 +1,10 @@
 import NavLink from "./NavLink";
 import { useSelector, useDispatch } from "react-redux";
-import { handleActiveLink } from "../../Features/Navbar/NavbarSlice";
+import {
+  handleActiveLink,
+  handleModalOpen,
+  handleSideBarOpen,
+} from "../../Features/Navbar/NavbarSlice";
 
 const Sidebar = () => {
   const links = ["Home", "Phones", "Headphones", "Laptops"];
@@ -21,6 +25,7 @@ const Sidebar = () => {
               }
               onClick={() => {
                 dispatch(handleActiveLink(link));
+                dispatch(handleSideBarOpen());
               }}
             >
               <NavLink link={link} />

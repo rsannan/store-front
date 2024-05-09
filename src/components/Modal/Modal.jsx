@@ -3,6 +3,7 @@ import { ModalCartIcon, ModalCloseIcon } from "../../Icons";
 import { useDispatch, useSelector } from "react-redux";
 import ModalCard from "./ModalCard";
 import { handleModalOpen } from "../../Features/Navbar/NavbarSlice";
+import { clearCart } from "../../Features/Store/StoreFront";
 
 const Modal = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,12 @@ const Modal = () => {
             </div>
             <div className="flex justify-center gap-5 mt-6 mb-2 ">
               <button className="btn btn-confirm">Confirm</button>
-              <button className="btn btn-clear">Clear Cart</button>
+              <button
+                className="btn btn-clear"
+                onClick={() => dispatch(clearCart())}
+              >
+                Clear Cart
+              </button>
             </div>
           </div>
         </div>
